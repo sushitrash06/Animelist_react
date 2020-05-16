@@ -9,11 +9,12 @@ class App extends Component{
       }
     }
     componentDidMount(){
-      fetch('https://api.jikan.moe/v3/top/anime/1/upcoming')
+      fetch('https://api.jikan.moe/v3/top/anime/1/tv')
         .then(res => res.json())
         .then(json => {
           this.setState({
             items: json.top,
+            image:json.top,
             isLoaded: true,
           })
         }).catch((err)=>{
@@ -21,10 +22,10 @@ class App extends Component{
         });
     }
     render(){
-      var{ isLoaded, items } = this.state;
+      var{ isLoaded, items,image } = this.state;
 
       if (!isLoaded){
-        return <div>Loading...</div>;
+        return <div>Loading...</div>; 
       }
       else{
         return(
@@ -34,7 +35,8 @@ class App extends Component{
               {items.map(item => (
                 <li key={item.mal_id}>
 
-                  Rank : {item.rank} | Title : {item.title} | {item.img_url}
+                  Rank : {item.rank} | Title : {item.title} | 
+                  <img src= {item.image_url} alt = "img"></img>
 
                 </li>
 
