@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import './Anime';
+import './Style.css';
  
 class Home extends Component {
   render() {
@@ -8,9 +10,9 @@ class Home extends Component {
         <div className="row">
             <form id="search_form" className="col s12">
                 <div className="row">
-                    <div class="input-field col 26">
-                        <input placeholder="Placeholder" name="search" id="search" type="text" className="validate"></input>
-                        <label for="search">search</label>
+                    <div className="input-field col 26">
+                        <input name="search" id="search" type="text" className="validate"></input>
+                        <label htmlFor="search">search</label>
                     </div>
                 </div>
             </form>
@@ -19,6 +21,8 @@ class Home extends Component {
     <div id="search-results" className="container">
 
     </div>
+    <script src="./Anime.js"></script>
+
     </div>
     );
   }

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {Card} from 'react-bootstrap';
+import './Style.css';
 class App extends Component{
 
     constructor(props){
@@ -31,20 +33,19 @@ class App extends Component{
         return(
           <div className="App"> 
 
-            <ul>
-              {items.map(item => (
-                <li key={item.mal_id}>
-
-                  Rank : {item.rank} | Title : {item.title} | 
-                  <img src= {item.image_url} alt = "img"></img>
-
-                </li>
-
-
-              ))}
-
-            </ul>
-          </div>
+            {items.map(item =>(
+              <Card style={{ width: '18rem' }} key={item.mal_id}>
+            <Card.Img variant="top" src={item.image_url} alt="img"/>
+          <Card.Body>
+        <Card.Title>Rank : {item.rank}</Card.Title>
+        <Card.Text>
+          {item.title}
+          </Card.Text>
+      </Card.Body>
+    </Card>
+    ))}
+              </div>
+            
         );
       }
       
